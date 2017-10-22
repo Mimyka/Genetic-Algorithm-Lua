@@ -1,0 +1,20 @@
+io.write('Result to attempt : ')
+EXPECTED_RESULT = tonumber(io.read())
+
+MUTATION_CHANCE = 0.1
+GRADED_RETAIN_PERCENT = 0.2
+CHANCE_RETAIN_NONGRATED = 0.05
+
+POPULATION_COUNT = 100
+GENERATION_COUNT = 1000
+
+GRADED_RETAIN_COUNT = POPULATION_COUNT * GRADED_RETAIN_PERCENT
+
+CHROMOSOME_LENGTH = (function()
+  local cl = math.abs(math.ceil(EXPECTED_RESULT/10))
+  if cl < 10 then
+    cl = 10
+  end
+  return cl
+ end)()
+MIDDLE_CHROMOSOME_LENGTH = math.ceil(CHROMOSOME_LENGTH/2)
